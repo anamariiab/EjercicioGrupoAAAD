@@ -38,13 +38,13 @@ public class StockArticulos {
 	
 
 // Método para añadir una instancia a la lista
-    private static void agregarInstancia(StockArticulos instancia) {
-    listaDeInstancias.add(instancia);
+    public static void agregarInstancia(StockArticulos instancia) {
+    inventario.add(instancia);
 }
 
 // Método para obtener la lista de instancias
     public static List<StockArticulos> obtenerListaDeInstancias() {
-    return listaDeInstancias;
+    return inventario;
 }
 
 	// almacenamos en nombre el valor recogido por el JOption
@@ -52,6 +52,20 @@ public class StockArticulos {
 	// proporcionados.
 	// inventario.add = agrega el nuevo objeto al inventario.
 	// IF = verificamos que el tamaño del inventario sea =< que 10.
+
+	// StringBuilder stock = crea un objeto SB=stock e inicializa su contenido
+	// en la cadena INVENTARIO ACTUAL
+	// bucle recorre cada elemento y asigna producto - .append (añade)
+	// Joption se imprime
+	
+	public static void mostrarStock() {
+		StringBuilder stock = new StringBuilder("INVENTARIO ACTUAL:\n");
+	
+		for (StockArticulos producto : inventario) {
+			stock.append(producto.nombre).append(": ").append(producto.cantidad).append("\n");
+		}
+		JOptionPane.showMessageDialog(null, stock.toString(), "Inventario Actual", JOptionPane.INFORMATION_MESSAGE);
+	}
 
 	public static void agregarArticulo() {
 		String nombre = JOptionPane.showInputDialog("Ingrese el nombre del artículo:");
@@ -143,14 +157,7 @@ public class StockArticulos {
 	// bucle recorre cada elemento y asigna producto - .append (añade)
 	// Joption se imprime
 
-	public static void mostrarStock() {
-		StringBuilder stock = new StringBuilder("INVENTARIO ACTUAL:\n");
-
-		for (StockArticulos producto : inventario) {
-			stock.append(producto.nombre).append(": ").append(producto.cantidad).append("\n");
-		}
-		JOptionPane.showMessageDialog(null, stock.toString(), "Inventario Actual", JOptionPane.INFORMATION_MESSAGE);
-	}
+	
 
 	// Crea SB lista, inicializa en la cadena
 	// bucle recorre y almacena en producto, lista.append

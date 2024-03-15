@@ -10,31 +10,20 @@ public class Ana {
 	public static void main(String[] args) {
 
 		
-		// Lista para almacenar los productos 
-		//hey
-					final  List<StockArticulos>  inventario = new ArrayList<>();
+		// Lista para almacenar los productos
+					
 					
 			StockArticulos leche = new StockArticulos("LECHE", 1.10, 4, 20);
-			inventario.add(leche);
 			StockArticulos pan = new StockArticulos("PAN", 0.90, 4, 30);
-			inventario.add(pan);
 			StockArticulos huevos = new StockArticulos("HUEVOS", 2.50, 4, 40);
-			inventario.add(huevos);
 			StockArticulos arroz = new StockArticulos("ARROZ", 1.30, 21, 15);
-			inventario.add(arroz);
 			StockArticulos pasta = new StockArticulos("PASTA", 1.25, 21, 25);
-			inventario.add(pasta);
 			StockArticulos tomates = new StockArticulos("TOMATES", 2.35, 21, 35);
-			inventario.add(tomates);
 			StockArticulos patatas = new StockArticulos("PATATAS", 2.10, 21, 10);
-			inventario.add(patatas);
 			StockArticulos manzanas = new StockArticulos("MANZANAS", 1.75, 21, 45);
-			inventario.add(manzanas);
-
-			 // Obtener la lista de instancias
-	        List<StockArticulos> lista = StockArticulos.obtenerListaDeInstancias();
-
 			
+			List<StockArticulos> lista = StockArticulos.obtenerListaDeInstancias();
+
 			Scanner sc = new Scanner(System.in);
 			boolean otroCliente = true;
 			double gananciasBrutoTotal = 0;
