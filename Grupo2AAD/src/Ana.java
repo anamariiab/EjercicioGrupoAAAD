@@ -41,7 +41,7 @@ public class Ana {
 				HashMap<String, Double[]> compra = new HashMap<>();
 
 				System.out.println("Este es el stock actual de la tienda:\n");
-				mostrarStock();
+				StockArticulos.mostrarStock();
 
 				System.out.println("-- INICIO COMPRA --");
 				comprarArticulos(sc, compra);
@@ -76,16 +76,16 @@ public class Ana {
 
 					switch (opcion) {
 					case "1":
-						agregarArticulo();
+						StockArticulos.agregarArticulo();
 						break;
 					case "2":
-						eliminarArticulo();
+						StockArticulos.eliminarArticulo();
 						break;
 					case "3":
-						modificarCantidad();
+						StockArticulos.modificarCantidad();
 						break;
 					case "4":
-						mostrarStock();
+						StockArticulos.mostrarStock();
 						// Preguntar al usuario si desea continuar después de mostrar el stock
 						continuar = JOptionPane.showConfirmDialog(null, "¿Desea realizar otra acción?", "Continuar",
 								JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION;
@@ -115,7 +115,7 @@ public class Ana {
 				String nombreProductoComprado = sc.nextLine();
 
 				// Buscar el artículo en el inventario
-				StockArticulos articulo = buscarArticulo(nombreProductoComprado);
+				StockArticulos articulo = StockArticulos.buscarArticulo(nombreProductoComprado);
 
 				if (articulo != null) {
 					System.out.println("Cantidad disponible: " + articulo.cantidad);
