@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class Diego {
+public class MenúDiego {
 
 	public static void main(String[] args) {
 	class JavaPurchaseManagementSystemApp {
