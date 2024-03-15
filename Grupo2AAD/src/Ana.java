@@ -30,7 +30,9 @@ public class Ana {
 			StockArticulos manzanas = new StockArticulos("MANZANAS", 1.75, 21, 45);
 			inventario.add(manzanas);
 
-			
+			 // Obtener la lista de instancias
+	        List<StockArticulos> lista = StockArticulos.obtenerListaDeInstancias();
+
 			
 			Scanner sc = new Scanner(System.in);
 			boolean otroCliente = true;

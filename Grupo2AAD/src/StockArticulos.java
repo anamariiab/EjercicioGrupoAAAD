@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 public class StockArticulos {
+	
+	public static List<StockArticulos> listaDeInstancias = new ArrayList<>();
 
 	// ATRIBUTOS
 	String nombre;
@@ -30,7 +32,20 @@ public class StockArticulos {
 		this.precioBruto = precioBruto;
 		this.IVA = IVA;
 		this.cantidad = cantidad;
+		
+		agregarInstancia(this);
 	}
+	
+
+// Método para añadir una instancia a la lista
+    private static void agregarInstancia(StockArticulos instancia) {
+    listaDeInstancias.add(instancia);
+}
+
+// Método para obtener la lista de instancias
+    public static List<StockArticulos> obtenerListaDeInstancias() {
+    return listaDeInstancias;
+}
 
 	// almacenamos en nombre el valor recogido por el JOption
 	// StockArticulos producto = crea un nuevo objeto con los valores
