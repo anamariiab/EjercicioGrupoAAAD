@@ -10,7 +10,8 @@ public class Ana {
 	public static void main(String[] args) {
 
 		
-		// Lista para almacenar los productos
+		// Lista para almacenar los productos 
+		//hey
 					final  List<StockArticulos>  inventario = new ArrayList<>();
 					
 			StockArticulos leche = new StockArticulos("LECHE", 1.10, 4, 20);
