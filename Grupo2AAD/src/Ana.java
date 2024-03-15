@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 
 import javax.swing.JOptionPane;
@@ -7,6 +9,10 @@ public class Ana {
 
 	public static void main(String[] args) {
 
+		
+		// Lista para almacenar los productos
+					final  List<StockArticulos>  inventario = new ArrayList<>();
+					
 			StockArticulos leche = new StockArticulos("LECHE", 1.10, 4, 20);
 			inventario.add(leche);
 			StockArticulos pan = new StockArticulos("PAN", 0.90, 4, 30);
@@ -24,6 +30,8 @@ public class Ana {
 			StockArticulos manzanas = new StockArticulos("MANZANAS", 1.75, 21, 45);
 			inventario.add(manzanas);
 
+			
+			
 			Scanner sc = new Scanner(System.in);
 			boolean otroCliente = true;
 			double gananciasBrutoTotal = 0;
