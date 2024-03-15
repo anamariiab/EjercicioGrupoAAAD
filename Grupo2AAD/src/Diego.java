@@ -4,4 +4,6 @@ public class Diego {
 	//hbhbhbhbh
 	
 	//PRUEBA F5?¿?¿?
+	//MODIFICO ARCHIVO
+	String Patata;
 }
