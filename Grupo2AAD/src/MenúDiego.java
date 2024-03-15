@@ -18,6 +18,15 @@ public class MenúDiego {
 			sc.close();
 		}
 
+		// Menús
+		public static void menu() {
+			System.out.println("---------SELECCIONA UNA OPCIÓN---------");
+			System.out.println("1. Gestionar Stock");
+			System.out.println("2. Hacer Compra");
+			System.out.println("3. Salir");
+			System.out.println("---------------------------------------");
+		}
+
 		// Menús de Gestión
 		public static void mostrarMenu(HashMap<String, HashMap> baseDeDatos, HashMap<String, HashMap> carrito) {
 			Scanner sc = new Scanner(System.in);
@@ -41,6 +50,15 @@ public class MenúDiego {
 					break;
 				}
 			}
+		}
+
+		public static void menuStock() {
+			System.out.println("---------SELECCIONA UNA OPCIÓN---------");
+			System.out.println("	1. Listar Stock");
+			System.out.println("	2. Añadir Producto");
+			System.out.println("	3. Consultar Producto");
+			System.out.println("	4. Salir");
+			System.out.println("---------------------------------------");
 		}
 
 		public static void gestionarStock(HashMap<String, HashMap> baseDeDatos) {
@@ -69,6 +87,51 @@ public class MenúDiego {
 			}
 		}
 
+		public static void mostrarStock(HashMap<String, HashMap> baseDeDatos) {
+			for (String i : baseDeDatos.keySet()) {
+				System.out.println(i + ": " + baseDeDatos.get(i));
+			}
+			System.out.println();
+		}
+
+		// Métodos de gestión de stock
+		public static void addStock(HashMap<String, HashMap> baseDeDatos) {
+			Scanner sc = new Scanner(System.in);
+		
+			System.out.println("Nombre del producto:");
+			String nombre = sc.nextLine();
+			System.out.println("Precio del producto:");
+			double precio = sc.nextDouble();
+			System.out.println("Cantidad del producto:");
+			int cantidad = sc.nextInt();
+			System.out.println("IVA del producto:");
+			double iva = sc.nextDouble();
+		
+			HashMap<String, Object> producto = new HashMap<String, Object>();
+			producto.put("precio", precio);
+			producto.put("cantidad", cantidad);
+			producto.put("iva", iva);
+		
+			baseDeDatos.put(nombre, producto);
+		
+		}
+
+		public static void comprobarProducto(HashMap<String, HashMap> baseDeDatos) {
+			Scanner sc = new Scanner(System.in);
+			System.out.println("¿Qué producto quieres comprobar?");
+			String producto = sc.nextLine();
+			System.out.println(baseDeDatos.get(producto) + "\n");
+		
+		}
+
+		public static void menuCarrito() {
+			System.out.println("---------SELECCIONA UNA OPCIÓN---------");
+			System.out.println("	1. Añadir producto");
+			System.out.println("	2. Comprobar carrito");
+			System.out.println("	3. Comprar");
+			System.out.println("---------------------------------------");
+		}
+
 		public static void gestionarCarrito(HashMap<String, HashMap> baseDeDatos, HashMap<String, HashMap> carrito) {
 			Scanner sc = new Scanner(System.in);
 			int choose = 0;
@@ -94,43 +157,6 @@ public class MenúDiego {
 					break;
 				}
 			}
-		}
-
-		// Métodos de gestión de stock
-		public static void addStock(HashMap<String, HashMap> baseDeDatos) {
-			Scanner sc = new Scanner(System.in);
-
-			System.out.println("Nombre del producto:");
-			String nombre = sc.nextLine();
-			System.out.println("Precio del producto:");
-			double precio = sc.nextDouble();
-			System.out.println("Cantidad del producto:");
-			int cantidad = sc.nextInt();
-			System.out.println("IVA del producto:");
-			double iva = sc.nextDouble();
-
-			HashMap<String, Object> producto = new HashMap<String, Object>();
-			producto.put("precio", precio);
-			producto.put("cantidad", cantidad);
-			producto.put("iva", iva);
-
-			baseDeDatos.put(nombre, producto);
-
-		}
-
-		public static void comprobarProducto(HashMap<String, HashMap> baseDeDatos) {
-			Scanner sc = new Scanner(System.in);
-			System.out.println("¿Qué producto quieres comprobar?");
-			String producto = sc.nextLine();
-			System.out.println(baseDeDatos.get(producto) + "\n");
-
-		}
-
-		public static void mostrarStock(HashMap<String, HashMap> baseDeDatos) {
-			for (String i : baseDeDatos.keySet()) {
-				System.out.println(i + ": " + baseDeDatos.get(i));
-			}
-			System.out.println();
 		}
 
 		// Métodos de gestión de Compra
@@ -163,20 +189,6 @@ public class MenúDiego {
 			System.out.println();
 		}
 
-		public static void confirmarCompra(HashMap<String, HashMap> carrito, HashMap<String, HashMap> baseDeDatos) {
-			Scanner sc = new Scanner(System.in);
-			System.out.println("¿Confirmas esta compra? (S/N)");
-			mostrarCarrito(carrito);
-
-			String respuesta = "";
-			while (!respuesta.equalsIgnoreCase("S") && !respuesta.equalsIgnoreCase("N")) {
-				respuesta = sc.nextLine();
-				if (respuesta.equalsIgnoreCase("S")) {
-					hacerCompra(carrito, baseDeDatos);
-				}
-			}
-		}
-
 		// Métodos de calcular la compra
 		public static void hacerCompra(HashMap<String, HashMap> carrito, HashMap<String, HashMap> baseDeDatos) {
 			Scanner sc = new Scanner(System.in);
@@ -197,6 +209,20 @@ public class MenúDiego {
 			}
 			actualizarStock(carrito, baseDeDatos);
 			carrito.clear();
+		}
+
+		public static void confirmarCompra(HashMap<String, HashMap> carrito, HashMap<String, HashMap> baseDeDatos) {
+			Scanner sc = new Scanner(System.in);
+			System.out.println("¿Confirmas esta compra? (S/N)");
+			mostrarCarrito(carrito);
+
+			String respuesta = "";
+			while (!respuesta.equalsIgnoreCase("S") && !respuesta.equalsIgnoreCase("N")) {
+				respuesta = sc.nextLine();
+				if (respuesta.equalsIgnoreCase("S")) {
+					hacerCompra(carrito, baseDeDatos);
+				}
+			}
 		}
 
 		private static double totalConIVA(HashMap<String, HashMap> carrito) {
@@ -228,32 +254,6 @@ public class MenúDiego {
 
 		public static double pagar(double precio, double efectivo) {
 			return efectivo - precio;
-		}
-
-		// Menús
-		public static void menu() {
-			System.out.println("---------SELECCIONA UNA OPCIÓN---------");
-			System.out.println("1. Gestionar Stock");
-			System.out.println("2. Hacer Compra");
-			System.out.println("3. Salir");
-			System.out.println("---------------------------------------");
-		}
-
-		public static void menuStock() {
-			System.out.println("---------SELECCIONA UNA OPCIÓN---------");
-			System.out.println("	1. Listar Stock");
-			System.out.println("	2. Añadir Producto");
-			System.out.println("	3. Consultar Producto");
-			System.out.println("	4. Salir");
-			System.out.println("---------------------------------------");
-		}
-
-		public static void menuCarrito() {
-			System.out.println("---------SELECCIONA UNA OPCIÓN---------");
-			System.out.println("	1. Añadir producto");
-			System.out.println("	2. Comprobar carrito");
-			System.out.println("	3. Comprar");
-			System.out.println("---------------------------------------");
 		}
 
 		// Base de datos inicial
