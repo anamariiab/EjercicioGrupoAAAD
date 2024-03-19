@@ -58,31 +58,38 @@ public class StockArticulos {
 	// bucle recorre cada elemento y asigna producto - .append (añade)
 	// Joption se imprime
 	
-	public static void mostrarStock() {
+    public static void mostrarStock() {                                       //sc Y!
+		Scanner scanner = new Scanner(System.in);
 		StringBuilder stock = new StringBuilder("INVENTARIO ACTUAL:\n");
-	
-		for (StockArticulos producto : inventario) {
-			stock.append(producto.nombre).append(": ").append(producto.cantidad).append("\n");
-		}
-		JOptionPane.showMessageDialog(null, stock.toString(), "Inventario Actual", JOptionPane.INFORMATION_MESSAGE);
+	    for (StockArticulos producto : inventario) {
+	        stock.append(producto.nombre).append(": ").append(producto.cantidad).append("\n");
+	    }
+	    System.out.println(stock.toString());
 	}
 
-	public static void agregarArticulo() {
-		String nombre = JOptionPane.showInputDialog("Ingrese el nombre del artículo:");
-		nombre = nombre.toUpperCase(); // Convertir a mayúsculas
-		double precioBruto = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el precio bruto del artículo:"));
-		double IVA = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el IVA del artículo:"));
-		int cantidad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad del artículo:"));
+    public static void agregarArticulo() {                                 //sc Y!
+		Scanner scanner = new Scanner(System.in);
+	    
+	    System.out.print("Ingrese el nombre del artículo: ");
+	    String nombre = scanner.nextLine();
+	    nombre = nombre.toUpperCase(); // Convertir a mayúsculas
+	    
+	    System.out.print("Ingrese el precio bruto del artículo: ");
+	    double precioBruto = scanner.nextDouble();
+	    
+	    System.out.print("Ingrese el IVA del artículo: ");
+	    double IVA = scanner.nextDouble();
+	    
+	    System.out.print("Ingrese la cantidad del artículo: ");
+	    int cantidad = scanner.nextInt();
 
-		StockArticulos producto = new StockArticulos(nombre, precioBruto, IVA, cantidad);
-		inventario.add(producto);
+	    StockArticulos producto = new StockArticulos(nombre, precioBruto, IVA, cantidad);
+	    inventario.add(producto);
 
-		if (inventario.size() >= 10) {
-			JOptionPane.showMessageDialog(null, "¡El inventario contiene 10 o más productos!", "Mensaje",
-					JOptionPane.INFORMATION_MESSAGE);
-		}
-		JOptionPane.showMessageDialog(null, "¡Artículo agregado correctamente!", "Mensaje",
-				JOptionPane.INFORMATION_MESSAGE);
+	    if (inventario.size() >= 10) {
+	        System.out.println("¡El inventario contiene 10 o más productos!");
+	    }
+	    System.out.println("¡Artículo agregado correctamente!");
 	}
 
 	// se pide el nombre y lo pasa a upperCase
@@ -94,25 +101,26 @@ public class StockArticulos {
 	// coincidencia
 	// lo elimina y muestra un mensaje.
 
-	public static void eliminarArticulo() {
+    public static void eliminarArticulo() {                                         // sc Y!
 
-		String nombre = JOptionPane.showInputDialog("Ingrese el nombre del artículo a eliminar:");
-		nombre = nombre.toUpperCase(); // Convertir a mayúsculas
+		Scanner scanner = new Scanner(System.in);
 
-		Iterator<StockArticulos> iterator = inventario.iterator();
-		while (iterator.hasNext()) {
-			StockArticulos producto = iterator.next();
+	    System.out.print("Ingrese el nombre del artículo a eliminar: ");
+	    String nombre = scanner.nextLine();
+	    nombre = nombre.toUpperCase(); // Convertir a mayúsculas
 
-			if (producto.nombre.equalsIgnoreCase(nombre)) {
-				iterator.remove();
-				JOptionPane.showMessageDialog(null, "¡Artículo eliminado correctamente!", "Mensaje",
-						JOptionPane.INFORMATION_MESSAGE);
-				return;
-			}
-		}
+	    Iterator<StockArticulos> iterator = inventario.iterator();
+	    while (iterator.hasNext()) {
+	        StockArticulos producto = iterator.next();
 
-		JOptionPane.showMessageDialog(null, "El artículo '" + nombre + "' no existe en el inventario.", "Error",
-				JOptionPane.ERROR_MESSAGE);
+	        if (producto.nombre.equalsIgnoreCase(nombre)) {
+	            iterator.remove();
+	            System.out.println("¡Artículo eliminado correctamente!");
+	            return;
+	        }
+	    }
+
+	    System.out.println("El artículo '" + nombre + "' no existe en el inventario.");
 	}
 
 	// bucle que recorre todos los elementos del inventario. - producto
@@ -134,22 +142,24 @@ public class StockArticulos {
 	// la q de producto actual x la ingresada
 	// sino --- ERROR
 
-	public static void modificarCantidad() {
-		String nombre = JOptionPane.showInputDialog("Ingrese el nombre del artículo cuya cantidad desea modificar:");
-		nombre = nombre.toUpperCase(); // Convertir a mayúsculas
+	public static void modificarCantidad() {                      //sc Y!
+	    Scanner scanner = new Scanner(System.in);
 
-		for (StockArticulos producto : inventario) {
-			if (producto.nombre.equalsIgnoreCase(nombre)) {
-				int nuevaCantidad = Integer.parseInt(
-						JOptionPane.showInputDialog("Ingrese la nueva cantidad para el artículo '" + nombre + "':"));
-				producto.cantidad = nuevaCantidad;
-				JOptionPane.showMessageDialog(null, "¡Cantidad modificada correctamente!", "Mensaje",
-						JOptionPane.INFORMATION_MESSAGE);
-				return;
-			}
-		}
-		JOptionPane.showMessageDialog(null, "El artículo '" + nombre + "' no existe en el inventario.", "Error",
-				JOptionPane.ERROR_MESSAGE);
+	    System.out.print("Ingrese el nombre del artículo cuya cantidad desea modificar: ");
+	    String nombre = scanner.nextLine();
+	    nombre = nombre.toUpperCase(); // Convertir a mayúsculas
+
+	    for (StockArticulos producto : inventario) {
+	        if (producto.nombre.equalsIgnoreCase(nombre)) {
+	            System.out.print("Ingrese la nueva cantidad para el artículo '" + nombre + "': ");
+	            int nuevaCantidad = scanner.nextInt();
+	            producto.cantidad = nuevaCantidad;
+	            System.out.println("¡Cantidad modificada correctamente!");
+	            return;
+	        }
+	    }
+
+	    System.out.println("El artículo " + nombre + " no existe en el inventario.");
 	}
 
 	// StringBuilder stock = crea un objeto SB=stock e inicializa su contenido
@@ -163,12 +173,12 @@ public class StockArticulos {
 	// bucle recorre y almacena en producto, lista.append
 	// JOptionPane, muestra un panel con la lista de productos - toString.
 
-	public static void listarProductos() {
-		StringBuilder lista = new StringBuilder("Productos disponibles:\n");
-		for (StockArticulos producto : inventario) {
-			lista.append(producto.nombre).append("\n");
-		}
-		JOptionPane.showMessageDialog(null, lista.toString(), "Lista de Productos", JOptionPane.PLAIN_MESSAGE);
+	public static void listarProductos() {                        //sc Y!!
+	    StringBuilder lista = new StringBuilder("Productos disponibles:\n");
+	    for (StockArticulos producto : inventario) {
+	        lista.append(producto.nombre).append("\n");
+	    }
+	    System.out.println(lista.toString());
 	}
 
 	
