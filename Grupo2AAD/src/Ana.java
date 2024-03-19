@@ -61,33 +61,36 @@ public class Ana {
 				boolean continuar = true; // Variable para controlar si continuar en el bucle while
 
 				while (continuar) {
-					String opcion = JOptionPane.showInputDialog(null,
-							"Seleccione una opción:\n" + "1. Agregar artículo\n" + "2. Eliminar artículo\n"
-									+ "3. Modificar cantidad\n" + "4. Mostrar stock\n" + "5. Salir",
-							"Menú de Opciones", JOptionPane.PLAIN_MESSAGE);
+		            System.out.println("\nSeleccione una opción:\n" + "1. Agregar artículo\n" + "2. Eliminar artículo\n"
+		                    + "3. Modificar cantidad\n" + "4. Mostrar stock\n" + "5. Salir");
+		            String opcion = sc.nextLine();
 
-					switch (opcion) {
-					case "1":
-						StockArticulos.agregarArticulo();
-						break;
-					case "2":
-						StockArticulos.eliminarArticulo();
-						break;
-					case "3":
-						StockArticulos.modificarCantidad();
-						break;
-					case "4":
-						StockArticulos.mostrarStock();
-						// Preguntar al usuario si desea continuar después de mostrar el stock
-						continuar = JOptionPane.showConfirmDialog(null, "¿Desea realizar otra acción?", "Continuar",
-								JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION;
-						break;
-					case "5":
-						continuar = false; // Salir del bucle
-						break;
-					default:
-						JOptionPane.showMessageDialog(null, "Opción no válida", "Error", JOptionPane.ERROR_MESSAGE);
-
+		            switch (opcion) {
+	                case "1":
+	                    // StockArticulos.agregarArticulo();
+	                    System.out.println("Agregar artículo");
+	                    break;
+	                case "2":
+	                    // StockArticulos.eliminarArticulo();
+	                    System.out.println("Eliminar artículo");
+	                    break;
+	                case "3":
+	                    // StockArticulos.modificarCantidad();
+	                    System.out.println("Modificar cantidad");
+	                    break;
+	                case "4":
+	                    // StockArticulos.mostrarStock();
+	                    // Preguntar al usuario si desea continuar después de mostrar el stock
+	                    System.out.println("Mostrar stock");
+	                    System.out.println("¿Desea realizar otra acción? (Sí/No)");
+	                    String respuesta1 = sc.nextLine();
+	                    continuar = respuesta1.equalsIgnoreCase("Sí");
+	                    break;
+	                case "5":
+	                    continuar = false; // Salir del bucle
+	                    break;
+	                default:
+	                    System.out.println("Opción no válida!");
 //					CIERRE SWITCH
 					}
 
