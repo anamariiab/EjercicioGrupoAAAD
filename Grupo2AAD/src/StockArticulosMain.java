@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
-public class Ana {
+public class StockArticulosMain {
 
 	public static void main(String[] args) {
 
