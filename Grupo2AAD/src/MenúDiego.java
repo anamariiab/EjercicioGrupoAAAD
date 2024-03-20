@@ -3,8 +3,6 @@ import java.util.Scanner;
 
 public class MenúDiego {
 
-	public static void main(String[] args) {
-	class JavaPurchaseManagementSystemApp {
 
 		public static void main(String[] args) {
 			Scanner sc = new Scanner(System.in);
@@ -318,4 +316,4 @@ public class MenúDiego {
 			elemento.put("IVA", 0.21);
 			baseDeDatos.put("queso", elemento);
 
-		}}}}
+		}}
