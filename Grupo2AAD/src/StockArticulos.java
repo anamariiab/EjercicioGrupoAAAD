@@ -10,10 +10,10 @@ public class StockArticulos {
 	public static List<StockArticulos> listaDeInstancias = new ArrayList<>();
 
 	// ATRIBUTOS
-	String nombre;
-	double precioBruto;
-	double IVA;
-	int cantidad;
+	protected String nombre;
+	protected double precioBruto;
+	protected double IVA;
+	protected int cantidad;
 
 	// Lista para almacenar los productos
 	static List<StockArticulos> inventario = new ArrayList<>();

@@ -85,6 +85,7 @@ public class StockArticulosMain {
 					continuar = respuesta1.equalsIgnoreCase("Sí");
 					break;
 				case "5":
+					System.out.println("-- INICIO COMPRA --");
 					comprarArticulos(sc, compra);
 				case "6":
 					continuar = false; // Salir del bucle
