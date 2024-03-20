@@ -36,17 +36,6 @@ public class StockArticulos {
 		agregarInstancia(this);
 	}
 	
-
-// Método para añadir una instancia a la lista
-    public static void agregarInstancia(StockArticulos instancia) {
-    inventario.add(instancia);
-}
-
-// Método para obtener la lista de instancias
-    public static List<StockArticulos> obtenerListaDeInstancias() {
-    return inventario;
-}
-
 	// almacenamos en nombre el valor recogido por el JOption
 	// StockArticulos producto = crea un nuevo objeto con los valores
 	// proporcionados.
@@ -58,8 +47,22 @@ public class StockArticulos {
 	// bucle recorre cada elemento y asigna producto - .append (añade)
 	// Joption se imprime
 	
+<<<<<<< Updated upstream
     public static void mostrarStock() {                                       //sc Y!
 		Scanner scanner = new Scanner(System.in);
+=======
+	// Método para añadir una instancia a la lista
+	    public static void agregarInstancia(StockArticulos instancia) {
+	    inventario.add(instancia);
+	}
+
+	// Método para obtener la lista de instancias
+		    public static List<StockArticulos> obtenerListaDeInstancias() {
+		    return inventario;
+		}
+
+	public static void mostrarStock() {
+>>>>>>> Stashed changes
 		StringBuilder stock = new StringBuilder("INVENTARIO ACTUAL:\n");
 	    for (StockArticulos producto : inventario) {
 	        stock.append(producto.nombre).append(": ").append(producto.cantidad).append("\n");
