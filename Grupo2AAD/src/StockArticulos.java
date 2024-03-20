@@ -52,7 +52,7 @@ public class StockArticulos {
 	// inventario.add = agrega el nuevo objeto al inventario.
 	// IF = verificamos que el tamaño del inventario sea =< que 10.
 
-	// StringBuilder stock = crea un objeto SB=stock e inicializa su contenido
+	
 	// en la cadena INVENTARIO ACTUAL
 	// bucle recorre cada elemento y asigna producto - .append (añade)
 	// se imprime
