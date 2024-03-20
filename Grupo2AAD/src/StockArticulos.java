@@ -1,10 +1,9 @@
 
-import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.HashMap;
 import java.util.Iterator;
+import javax.swing.JOptionPane;
 
 public class StockArticulos {
 	
@@ -36,7 +35,18 @@ public class StockArticulos {
 		agregarInstancia(this);
 	}
 	
-	// almacenamos en nombre el valor recogido por el JOption
+
+// Método para añadir una instancia a la lista
+    public static void agregarInstancia(StockArticulos instancia) {
+    inventario.add(instancia);
+}
+
+// Método para obtener la lista de instancias
+    public static List<StockArticulos> obtenerListaDeInstancias() {
+    return inventario;
+}
+
+	// almacenamos en nombre el valor 
 	// StockArticulos producto = crea un nuevo objeto con los valores
 	// proporcionados.
 	// inventario.add = agrega el nuevo objeto al inventario.
@@ -45,24 +55,10 @@ public class StockArticulos {
 	// StringBuilder stock = crea un objeto SB=stock e inicializa su contenido
 	// en la cadena INVENTARIO ACTUAL
 	// bucle recorre cada elemento y asigna producto - .append (añade)
-	// Joption se imprime
+	// se imprime
 	
-<<<<<<< Updated upstream
-    public static void mostrarStock() {                                       //sc Y!
+	public static void mostrarStock() {                                       
 		Scanner scanner = new Scanner(System.in);
-=======
-	// Método para añadir una instancia a la lista
-	    public static void agregarInstancia(StockArticulos instancia) {
-	    inventario.add(instancia);
-	}
-
-	// Método para obtener la lista de instancias
-		    public static List<StockArticulos> obtenerListaDeInstancias() {
-		    return inventario;
-		}
-
-	public static void mostrarStock() {
->>>>>>> Stashed changes
 		StringBuilder stock = new StringBuilder("INVENTARIO ACTUAL:\n");
 	    for (StockArticulos producto : inventario) {
 	        stock.append(producto.nombre).append(": ").append(producto.cantidad).append("\n");
@@ -70,7 +66,7 @@ public class StockArticulos {
 	    System.out.println(stock.toString());
 	}
 
-    public static void agregarArticulo() {                                 //sc Y!
+	public static void agregarArticulo() {                                 
 		Scanner scanner = new Scanner(System.in);
 	    
 	    System.out.print("Ingrese el nombre del artículo: ");
@@ -94,7 +90,6 @@ public class StockArticulos {
 	    }
 	    System.out.println("¡Artículo agregado correctamente!");
 	}
-
 	// se pide el nombre y lo pasa a upperCase
 	// crea un objeto iterator para recorrer el inventario, accede, elimina y
 	// verifica.
@@ -104,7 +99,7 @@ public class StockArticulos {
 	// coincidencia
 	// lo elimina y muestra un mensaje.
 
-    public static void eliminarArticulo() {                                         // sc Y!
+	public static void eliminarArticulo() {                                         
 
 		Scanner scanner = new Scanner(System.in);
 
@@ -145,7 +140,7 @@ public class StockArticulos {
 	// la q de producto actual x la ingresada
 	// sino --- ERROR
 
-	public static void modificarCantidad() {                      //sc Y!
+	public static void modificarCantidad() {                      
 	    Scanner scanner = new Scanner(System.in);
 
 	    System.out.print("Ingrese el nombre del artículo cuya cantidad desea modificar: ");
@@ -168,15 +163,9 @@ public class StockArticulos {
 	// StringBuilder stock = crea un objeto SB=stock e inicializa su contenido
 	// en la cadena INVENTARIO ACTUAL
 	// bucle recorre cada elemento y asigna producto - .append (añade)
-	// Joption se imprime
+	// lista de productos - toString.
 
-	
-
-	// Crea SB lista, inicializa en la cadena
-	// bucle recorre y almacena en producto, lista.append
-	// JOptionPane, muestra un panel con la lista de productos - toString.
-
-	public static void listarProductos() {                        //sc Y!!
+	public static void listarProductos() {                        
 	    StringBuilder lista = new StringBuilder("Productos disponibles:\n");
 	    for (StockArticulos producto : inventario) {
 	        lista.append(producto.nombre).append("\n");
@@ -184,5 +173,4 @@ public class StockArticulos {
 	    System.out.println(lista.toString());
 	}
 
-	
 }
