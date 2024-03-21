@@ -81,7 +81,7 @@ public class StockArticulos {
 		int cantidad = scanner.nextInt();
 
 		StockArticulos producto = new StockArticulos(nombre, precioBruto, IVA, cantidad);
-		inventario.add(producto);
+		//inventario.add(producto);
 
 		if (inventario.size() >= 10) {
 			System.out.println("¡El inventario contiene 10 o más productos!");
