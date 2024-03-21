@@ -88,6 +88,7 @@ public class StockArticulosMain {
 					System.out.println("-- INICIO COMPRA --");
 					comprarArticulos(sc, compra);
 				case "6":
+					System.out.println("-- PROGRAMA FINALIZADO! --");
 					continuar = false; // Salir del bucle
 					break;
 
