@@ -85,7 +85,6 @@ public class StockArticulosMain {
 					break;
 				case "5":
 					System.out.println("-- INICIO COMPRA --");
-					comprarArticulos(sc, compra);
 					repetirCompra();
 					repetirInventario();
 
@@ -208,7 +207,7 @@ public class StockArticulosMain {
 			case "5":
 				System.out.println("-- INICIO COMPRA --");
 				comprarArticulos(sc, compra);
-				repetirCompra();
+				
 
 			case "6":
 				System.out.println("-- PROGRAMA FINALIZADO! --");
