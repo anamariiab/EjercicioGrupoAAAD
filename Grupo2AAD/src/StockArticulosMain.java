@@ -87,6 +87,7 @@ public class StockArticulosMain {
 				case "5":
 					System.out.println("-- INICIO COMPRA --");
 					comprarArticulos(sc, compra);
+					imprimirResumenCompra(compra);
 				case "6":
 					System.out.println("-- PROGRAMA FINALIZADO! --");
 					continuar = false; // Salir del bucle
