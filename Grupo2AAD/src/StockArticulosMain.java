@@ -80,13 +80,14 @@ public class StockArticulosMain {
 					// Preguntar al usuario si desea continuar después de mostrar el stock
 					System.out.println("Mostrar stock");
 					System.out.println("¿Desea realizar otra acción? (S/N)");
-					String respuesta1 = sc.nextLine();
+					String respuesta1 = sc.nextLine().toUpperCase();
 					continuar = respuesta1.equalsIgnoreCase("S");
 					break;
 				case "5":
 					System.out.println("-- INICIO COMPRA --");
 					comprarArticulos(sc, compra);
 					repetirCompra();
+					repetirInventario();
 
 				case "6":
 					System.out.println("-- PROGRAMA FINALIZADO! --");
@@ -97,12 +98,14 @@ public class StockArticulosMain {
 					System.out.println("Opción no válida!");
 //					CIERRE SWITCH
 				}
+			}
+		}
 
 //				CIERRE WHILE
 			}
-		}
+		
 //			CIERRE MAIN 
-	}
+	
 
 	// METODOS EJ2
 
@@ -167,7 +170,57 @@ public class StockArticulosMain {
 			break;
 		}
 	}
+	
+	// repetir inventario
+	public static void repetirInventario() {
+		HashMap<String, Double[]> compra = new HashMap<>();
 
+		Scanner sc = new Scanner(System.in);
+
+		boolean continuar = true; // Variable para controlar si continuar en el bucle while
+
+		while (continuar) {
+			System.out.println("\nSeleccione una opción:\n" + "1. Agregar artículo\n" + "2. Eliminar artículo\n"
+					+ "3. Modificar cantidad\n" + "4. Mostrar stock\n" + "5. Repetir Compra" + "\n6. Salir");
+			String opcion = sc.nextLine();
+
+			switch (opcion) {
+			case "1":
+				StockArticulos.agregarArticulo();
+				System.out.println("Agregar artículo");
+				break;
+			case "2":
+				StockArticulos.eliminarArticulo();
+				System.out.println("Eliminar artículo");
+				break;
+			case "3":
+				StockArticulos.modificarCantidad();
+				System.out.println("Modificar cantidad");
+				break;
+			case "4":
+				StockArticulos.mostrarStock();
+				// Preguntar al usuario si desea continuar después de mostrar el stock
+				System.out.println("Mostrar stock");
+				System.out.println("¿Desea realizar otra acción? (S/N)");
+				String respuesta1 = sc.nextLine().toUpperCase();
+				continuar = respuesta1.equalsIgnoreCase("S");
+				break;
+			case "5":
+				System.out.println("-- INICIO COMPRA --");
+				comprarArticulos(sc, compra);
+				repetirCompra();
+
+			case "6":
+				System.out.println("-- PROGRAMA FINALIZADO! --");
+				continuar = false; // Salir del bucle
+				break;
+
+			default:
+				System.out.println("Opción no válida!");
+//				CIERRE SWITCH
+			}
+		}
+	}
 	// repetir la compra
 	public static void repetirCompra() {
 
