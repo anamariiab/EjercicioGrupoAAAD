@@ -6,7 +6,7 @@ import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 public class StockArticulosMain {
-
+	
 	public static void main(String[] args) {
 
 		// Lista para almacenar los productos
