@@ -87,6 +87,7 @@ public class StockArticulosMain {
 				case "5":
 					System.out.println("-- INICIO COMPRA --");
 					comprarArticulos(sc, compra);
+					repetirCompra();
 				case "6":
 					System.out.println("-- PROGRAMA FINALIZADO! --");
 					continuar = false; // Salir del bucle
@@ -164,6 +165,44 @@ public class StockArticulosMain {
 		default:
 			System.out.println("Método de pago no reconocido (escribe 'efectivo' o 'tarjeta' la siguiente vez).");
 			break;
+		}
+	}
+	
+	// repetir la compra
+	public static void repetirCompra() {
+		Scanner sc = new Scanner(System.in);
+		boolean otroCliente = true;
+		double gananciasBrutoTotal = 0;
+		double gananciasNetoTotal = 0;
+
+		while (otroCliente) {
+			HashMap<String, Double[]> compra = new HashMap<>();
+
+			System.out.println("Este es el stock actual de la tienda:\n");
+			StockArticulos.mostrarStock();
+
+			System.out.println("-- INICIO COMPRA --");
+			comprarArticulos(sc, compra);
+			imprimirResumenCompra(compra);
+
+			double totalCompraBruto = calcularTotalCompraBruto(compra);
+			double totalCompraNeto = calcularTotalCompraNeto(compra);
+			gananciasBrutoTotal += totalCompraBruto;
+			gananciasNetoTotal += totalCompraNeto;
+			imprimirTotalesCompra(totalCompraBruto, totalCompraNeto);
+			procesarPago(sc, totalCompraNeto);
+
+			System.out.println("¿Hay otro cliente? (Y/N)");
+			String respuesta = sc.nextLine().toUpperCase();
+
+			if (!respuesta.equals("Y")) {
+				otroCliente = false;
+				System.out.println("\n-- CAJA FINAL --" + "\nGanancias totales (Bruto): " + gananciasBrutoTotal
+						+ "\nGanancias totales (Neto): " + gananciasNetoTotal);
+
+			} else {
+				mostrarOpcionesInventario();
+			}
 		}
 	}
 
