@@ -79,9 +79,9 @@ public class StockArticulosMain {
 					StockArticulos.mostrarStock();
 					// Preguntar al usuario si desea continuar después de mostrar el stock
 					System.out.println("Mostrar stock");
-					System.out.println("¿Desea realizar otra acción? (S/N)");
+					System.out.println("¿Desea realizar otra acción? (Y/N)");
 					String respuesta1 = sc.nextLine().toUpperCase();
-					continuar = respuesta1.equalsIgnoreCase("S");
+					continuar = respuesta1.equalsIgnoreCase("Y");
 					break;
 				case "5":
 					System.out.println("-- INICIO COMPRA --");
@@ -200,9 +200,9 @@ public class StockArticulosMain {
 				StockArticulos.mostrarStock();
 				// Preguntar al usuario si desea continuar después de mostrar el stock
 				System.out.println("Mostrar stock");
-				System.out.println("¿Desea realizar otra acción? (S/N)");
+				System.out.println("¿Desea realizar otra acción? (Y/N)");
 				String respuesta1 = sc.nextLine().toUpperCase();
-				continuar = respuesta1.equalsIgnoreCase("S");
+				continuar = respuesta1.equalsIgnoreCase("Y");
 				break;
 			case "5":
 				System.out.println("-- INICIO COMPRA --");
