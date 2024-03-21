@@ -81,7 +81,7 @@ public class StockArticulosMain {
 					// Preguntar al usuario si desea continuar después de mostrar el stock
 					System.out.println("Mostrar stock");
 					System.out.println("¿Desea realizar otra acción? (S/N)");
-					String respuesta1 = sc.nextLine();
+					String respuesta1 = sc.nextLine().toLowerCase();
 					continuar = respuesta1.equalsIgnoreCase("S");
 					break;
 				case "5":
