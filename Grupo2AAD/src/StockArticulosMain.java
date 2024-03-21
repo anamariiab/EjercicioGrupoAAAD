@@ -210,7 +210,7 @@ public class StockArticulosMain {
 				
 
 			case "6":
-				System.out.println("-- PROGRAMA FINALIZADO! --");
+				System.out.println();
 				continuar = false; // Salir del bucle
 				break;
 
@@ -247,7 +247,6 @@ public class StockArticulosMain {
 
 			System.out.println("¿Hay otro cliente? (Y/N)");
 			String respuesta = sc.nextLine().toUpperCase();
-
 			if (!respuesta.equals("Y")) {
 				otroCliente = false;
 				System.out.println("\n-- CAJA FINAL --" + "\nGanancias totales (Bruto): " + gananciasBrutoTotal
