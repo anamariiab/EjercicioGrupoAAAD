@@ -65,24 +65,24 @@ public class StockArticulosMain {
 
 				switch (opcion) {
 				case "1":
-					// StockArticulos.agregarArticulo();
+					StockArticulos.agregarArticulo();
 					System.out.println("Agregar artículo");
 					break;
 				case "2":
-					// StockArticulos.eliminarArticulo();
+					StockArticulos.eliminarArticulo();
 					System.out.println("Eliminar artículo");
 					break;
 				case "3":
-					// StockArticulos.modificarCantidad();
+					StockArticulos.modificarCantidad();
 					System.out.println("Modificar cantidad");
 					break;
 				case "4":
-					// StockArticulos.mostrarStock();
+					StockArticulos.mostrarStock();
 					// Preguntar al usuario si desea continuar después de mostrar el stock
 					System.out.println("Mostrar stock");
-					System.out.println("¿Desea realizar otra acción? (Sí/No)");
+					System.out.println("¿Desea realizar otra acción? (S/N)");
 					String respuesta1 = sc.nextLine();
-					continuar = respuesta1.equalsIgnoreCase("Sí");
+					continuar = respuesta1.equalsIgnoreCase("S");
 					break;
 				case "5":
 					System.out.println("-- INICIO COMPRA --");
