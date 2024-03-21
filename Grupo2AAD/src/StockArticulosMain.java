@@ -81,13 +81,14 @@ public class StockArticulosMain {
 					// Preguntar al usuario si desea continuar después de mostrar el stock
 					System.out.println("Mostrar stock");
 					System.out.println("¿Desea realizar otra acción? (S/N)");
-					String respuesta1 = sc.nextLine().toLowerCase();
+					String respuesta1 = sc.nextLine();
 					continuar = respuesta1.equalsIgnoreCase("S");
 					break;
 				case "5":
 					System.out.println("-- INICIO COMPRA --");
 					comprarArticulos(sc, compra);
 					repetirCompra();
+
 				case "6":
 					System.out.println("-- PROGRAMA FINALIZADO! --");
 					continuar = false; // Salir del bucle
@@ -167,9 +168,10 @@ public class StockArticulosMain {
 			break;
 		}
 	}
-	
+
 	// repetir la compra
 	public static void repetirCompra() {
+
 		Scanner sc = new Scanner(System.in);
 		boolean otroCliente = true;
 		double gananciasBrutoTotal = 0;
