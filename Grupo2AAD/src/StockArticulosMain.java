@@ -133,7 +133,7 @@ public class StockArticulosMain {
 				// Agregar el artículo a la compra
 				double precioConIVA = calcularPrecioConIVA(articulo.precioBruto, articulo.IVA);
 				compra.put(nombreProductoComprado,
-						new Double[] { articulo.precioBruto, precioConIVA, articulo.IVA, (double) cantidad });
+						new Double[] { (articulo.precioBruto*cantidad), (precioConIVA*cantidad), articulo.IVA, (double) cantidad });
 				totalDeArticulos++;
 				// Restar la cantidad comprada del inventario
 				articulo.cantidad -= cantidad;
